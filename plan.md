@@ -3287,4 +3287,8 @@ Delivered:
 
 Verification note: this environment's network proxy rejected the official Stack site and supplied YouTube reference during this pass. The research document distinguishes confirmed terminology, strong inference, and THE Browser decisions; live-source validation remains mandatory before visual-fidelity work.
 
-**Next phase:** Phase 1 technical architecture implementation. Before code, verify the current stable Electron documentation/APIs and select pinned tooling. Do not skip the real-content, secure-process, and lifecycle prerequisites in Phases 2–5.
+**Phases 1–5 — Initial Electron foundation: COMPLETE (narrow vertical slice).**
+
+Implemented in `src/`: Electron main/renderer separation, a frozen capability-based preload bridge, a real `WebContentsView` with isolated and sandboxed web content, navigation policy, popup routing to an owned card, basic navigation controls, persistent one-workspace/one-stack card metadata, and unit tests for URL policy and local state writes. The package pins Electron with a current-major compatible range selected for implementation; `npm view electron` and online Electron documentation access were unavailable behind this environment’s network policy, so the exact latest release must be revalidated before release.
+
+**Next phase:** Phase 6 spatial card engine: model freeform card geometry, resize/focus/layout persistence, and host multiple live/sleeping content views without weakening the secure process boundary.
