@@ -15,8 +15,14 @@ This repository is at **Phase 0: research, product definition, and architecture*
 
 ## Not implemented yet
 
-No Electron bootstrap, Chromium view, navigation, persistence code, UI, extension support, downloads, privacy blocking, or package configuration exists yet. The next scoped implementation work is Phase 1–5: select and verify the current Electron toolchain; create the repository baseline; then implement the secure process model and one real navigable card before spatial UI.
+The initial Electron bootstrap, Chromium view, navigation, local metadata persistence, package configuration, and a minimal shell UI are now implemented. Extension support, downloads, privacy blocking, spatial drag/resize, workspace and stack editing, profiles UI, private browsing, history/bookmarks, packaging, and production hardening are not implemented yet. The next scoped implementation work is Phase 6: build the spatial card engine without weakening the secure content boundary.
 
 ## Research limitation
 
 The configured network proxy rejected access to the official Stack site/video during this pass. `docs/research/stack-analysis.md` therefore labels conclusions conservatively and records re-validation tasks; it does not present unverified details as facts.
+
+## Implemented foundation (Phases 1–5, initial vertical slice)
+
+THE Browser now has a runnable Electron shell with a secure, real Chromium `WebContentsView`. The shell owns only the workspace navigation UI; web pages are loaded by Electron in an isolated content view. It supports one persistent workspace/stack, creating and selecting real cards, URL-or-search navigation, back/forward/reload, card closing, popup-to-new-card routing, per-profile Chromium partitions, renderer-crash status, and detached DevTools. Workspace metadata is stored locally with serialized, atomic file replacement.
+
+This is deliberately an initial vertical slice, not a claim that later roadmap phases are complete. Spatial drag/resize, multi-stack/workspace editing, downloads, permissions UI, profiles UI, private mode, extensions, history/bookmarks, sleep/wake, packaging, and visual Stack-fidelity validation remain unimplemented.
